@@ -91,20 +91,12 @@ npm install
 cd ../frontend
 npm install
 
+```
+
 ⚙️ Environment Setup
 # Server
 PORT=8000
-
-# MongoDB Database
-MONGO_URI=mongodb+srv://guptavibhav123:LRVjBnwxyAM4FmLV@cluster0.su8ge.mongodb.net/
-
-# JWT Secret
-SECRET_KEY=jhfjkhwsgfhkjlshfscfnkjszljfnkl
-
-# Cloudinary Config
-CLOUD_NAME=dgl2rt2bc
-API_KEY=995943575559716
-API_SECRET=wdKhtM51jWex4N3kbEL0NZyQ52A
+<pre><code># Server PORT=8000 # MongoDB Database MONGO_URI=your_mongodb_connection_string # JWT Secret SECRET_KEY=your_jwt_secret_key # Cloudinary Config CLOUD_NAME=your_cloudinary_cloud_name API_KEY=your_cloudinary_api_key API_SECRET=your_cloudinary_api_secret </code></pre>
 
 
 🚀 Run Locally
