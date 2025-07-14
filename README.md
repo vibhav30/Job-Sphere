@@ -1,22 +1,33 @@
-# 💼 Fullstack Job Portal App
+# 💼 Job-Sphere : A Fullstack Job Portal with Admin Dashboard
 
-A modern, end-to-end **Job Portal Web Application** built using the powerful **MERN Stack (MongoDB, Express, React, Node.js)**. It supports job seekers and recruiters with real-time applications, secure authentication, file uploads, company dashboards, admin features, and more — designed with a responsive and sleek UI using **ShadCN UI**.
+A modern, end-to-end **Job Portal Web Application** built using the powerful **MERN Stack (MongoDB, Express, React, Node.js)**. It supports job seekers and recruiters with real-time applications, secure authentication, file uploads, admin dashboard, and more — designed with a responsive and sleek UI using **ShadCN UI**.
 
-![Tech Stack](https://img.shields.io/badge/MERN-FullStack-blueviolet) ![Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-brightgreen) ![License](https://img.shields.io/badge/License-MIT-lightgrey)
+![Tech Stack](https://img.shields.io/badge/MERN-FullStack-blueviolet)
+![Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-brightgreen)
+![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
 ---
 
 ## 📸 App Snapshots
 
 <p align="center">
-  <img src="screenshots/homepage.png" alt="Homepage" width="700"/>
-  <br/><em>🏠 Homepage with dynamic job listings</em><br/><br/>
-  <img src="screenshots/login.png" alt="Login Page" width="700"/>
-  <br/><em>🔐 Secure login for users and company admins</em><br/><br/>
-  <img src="screenshots/jobdetails.png" alt="Job Description" width="700"/>
+  <img src="screenshots/home.png" alt="Homepage" width="700"/>
+  <br/><em>🏠 Homepage with dynamic latest job listings</em><br/><br/>
+
+  <img src="screenshots/filterjobs.png" alt="Filter Jobs" width="700"/>
+  <br/><em>🔍 Filter jobs by location, type, and salary</em><br/><br/>
+
+  <img src="screenshots/jobs.png" alt="Jobs Page" width="700"/>
+  <br/><em>📄 List of available jobs for users to explore</em><br/><br/>
+
+  <img src="screenshots/jobdetails.png" alt="Job Details" width="700"/>
   <br/><em>📄 Detailed Job Description with Apply button</em><br/><br/>
-  <img src="screenshots/admin-dashboard.png" alt="Admin Dashboard" width="700"/>
-  <br/><em>🛠️ Admin Dashboard to manage jobs, users, and applicants</em><br/><br/>
+
+  <img src="screenshots/signup.png" alt="Signup Page" width="700"/>
+  <br/><em>🔐 Secure signup for users and recruiters</em><br/><br/>
+
+  <img src="screenshots/admin.png" alt="Admin Dashboard" width="700"/>
+  <br/><em>🛠️ Admin Dashboard to manage companies, jobs, and applicants</em><br/><br/>
 </p>
 
 ---
@@ -30,25 +41,20 @@ A modern, end-to-end **Job Portal Web Application** built using the powerful **M
 - Track application status
 - Update profile and resume
 
-### 🏢 For Employers
+### 🏢 For Recruiters (Admin)
 - Company registration and admin access
-- Create, edit, delete job posts
-- View applicants & update application status
-
-### 🛡️ For Admin
 - Global job and user management
-- View applications across companies
-- Role-based route protection
+- Create, edit and delete job posts & companies
+- View applicants & update application status
 
 ---
 
 ## 🛠️ Tech Stack
 
 ### Frontend
-- ⚛️ ReactJS (Vite)
+- ⚛️ ReactJS
 - 💅 ShadCN UI (Tailwind + Radix UI)
 - 🧠 Redux Toolkit
-- 🎞️ Framer Motion (Animations)
 
 ### Backend
 - 🟢 Node.js + Express.js
@@ -59,66 +65,145 @@ A modern, end-to-end **Job Portal Web Application** built using the powerful **M
 ---
 
 ## 📁 Folder Structure
-/frontend → React + Vite + ShadCN UI
-/backend → Express, MongoDB, Multer
-/models → Mongoose Schemas
-/controllers → User, Company, Job, Application
-/middleware → JWT Auth, Role-based Access
-/routes → REST APIs for each module
+
+```
+fullstack-job-portal/
+├── backend/                    # Express.js backend
+│   ├── index.js               # Entry point
+│   ├── .env                   # Environment variables
+│   ├── package.json           # Backend dependencies
+│   ├── controllers/           # Route logic
+│   │   ├── application.controller.js
+│   │   ├── company.controller.js
+│   │   ├── job.controller.js
+│   │   └── user.controller.js
+│   ├── models/                # Mongoose models
+│   │   ├── application.model.js
+│   │   ├── company.model.js
+│   │   ├── job.model.js
+│   │   └── user.model.js
+│   ├── middlewares/          # Auth and upload middleware
+│   │   ├── isAuthenticated.js
+│   │   └── mutler.js
+│   ├── routes/                # API routes
+│   │   ├── application.route.js
+│   │   ├── company.route.js
+│   │   ├── job.route.js
+│   │   └── user.route.js
+│   └── utils/                 # Helper utilities
+│       ├── cloudinary.js
+│       ├── datauri.js
+│       └── db.js
+
+├── frontend/                  # React + Vite frontend
+│   ├── index.html             # HTML entry point
+│   ├── package.json           # Frontend dependencies
+│   ├── vite.config.js         # Vite config
+│   ├── tailwind.config.js     # Tailwind CSS config
+│   ├── postcss.config.js      # PostCSS config
+│   ├── jsconfig.json          # JS config for paths
+│   ├── components.json        # Component metadata (ShadCN)
+│   └── src/                   # React application code
+│       ├── app/               # Redux store setup
+│       ├── pages/             # Route components (Home, Jobs, Auth, etc.)
+│       ├── components/        # Reusable components (Navbar, JobCard, etc.)
+│       ├── shared/            # Layout parts (Sidebar, Footer, etc.)
+│       ├── features/          # Redux slices (authSlice, jobSlice, etc.)
+│       ├── services/          # API service calls
+│       ├── utils/             # Helper functions
+│       └── main.jsx           # App entry point
+
+├── screenshots/               # Images for README preview
+├── README.md                  # Project documentation
+└── LICENSE                    # MIT License
+```
 
 
 ---
 
-## ⚙️ Getting Started
+## 🚀 Getting Started
 
-### 🧩 Prerequisites
-- Node.js (v18+)
-- MongoDB (Atlas/local)
-- npm or yarn
+### 1️⃣ Clone the Repository
 
-### 📦 Installation
-
-```
-# Clone the repository
-git clone https://github.com/yourusername/job-portal-app.git
-cd job-portal-app
-
-# Install backend dependencies
-cd backend
-npm install
-
-# Install frontend dependencies
-cd ../frontend
-npm install
-
+```bash
+git clone https://github.com/vibhav30/job-sphere.git
+cd job-sphere
 ```
 
-⚙️ Environment Setup
-# Server
+### 2️⃣ Install Dependencies
+
+**Backend:**
+
+```bash
+cd server
+npm install
+```
+
+**Frontend:**
+
+```bash
+cd ../client
+npm install
+```
+
+---
+
+## 🔧 Configuration
+
+Create a `.env` file inside the `server` folder:
+
+```env
 PORT=8000
-<pre><code># Server PORT=8000 # MongoDB Database MONGO_URI=your_mongodb_connection_string # JWT Secret SECRET_KEY=your_jwt_secret_key # Cloudinary Config CLOUD_NAME=your_cloudinary_cloud_name API_KEY=your_cloudinary_api_key API_SECRET=your_cloudinary_api_secret </code></pre>
+MONGO_URI=your_mongodb_connection_string
+SECRET_KEY=your_jwt_secret
+CLOUD_NAME=your_cloudinary_cloud_name
+API_KEY=your_cloudinary_api_key
+API_SECRET=your_cloudinary_api_secret
+```
 
+---
 
-🚀 Run Locally
-# Start backend
-cd backend
+## ▶️ Running the App
+
+### Start Backend
+
+```bash
+cd server
 npm run dev
+```
 
-# Start frontend
-cd ../frontend
+### Start Frontend
+
+```bash
+cd client
 npm run dev
+```
 
-🧠 Future Enhancements
-⏳ Email verification & notifications
+Frontend runs at: `http://localhost:5173`  
+Backend runs at: `http://localhost:8000`
 
-⏳ Real-time chat with recruiters
+---
 
-⏳ Docker & CI/CD setup
+## 🙌 Contributing
 
-🙌 Author
-Made with ❤️ by Vibhav Gupta
-If you found this helpful, please ⭐ the repo and share it with others!
+Contributions are what make the open-source community such an amazing place to learn and grow. Feel free to fork the project and open a pull request.
 
-📜 License
-Licensed under the MIT License — free to use, modify, and distribute.
+1. Fork the project  
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)  
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)  
+4. Push to the branch (`git push origin feature/AmazingFeature`)  
+5. Open a Pull Request  
 
+---
+
+## 🪪 License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+---
+
+## 📬 Contact
+
+**Created by Vibhav Gupta**  
+Email: [guptavibhav123@gmail.com]  
+GitHub: [https://github.com/vibhav30](https://github.com/vibhav30)

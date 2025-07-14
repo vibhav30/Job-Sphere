@@ -12,14 +12,14 @@ const Browse = () => {
 
     const { allJobs, searchedQuery } = useSelector((store) => store.job);
 
-    // Clear search query when unmounting
+    // Clear search query
     useEffect(() => {
         return () => {
             dispatch(setSearchedQuery(""));
         };
     }, [dispatch]);
 
-    // Filter jobs by searchedQuery (if any)
+    // Filter jobs by searchedQuery
     const filteredJobs = searchedQuery
         ? allJobs.filter((job) =>
             job.title.toLowerCase().includes(searchedQuery.toLowerCase())
